@@ -2,5 +2,24 @@
 {% block title %}Home - Unit Converter{% endblock %}
 
 {% block content %}
-    <div class="form-wrapper"></div>
+    <div class="form-wrapper">
+        <div class="btn-wrapper">
+            <button class="category-btn active">Length</button>
+            <button class="category-btn">Weight</button>
+            <button class="category-btn">Temperature</button>
+        </div>
+        <form action="#" method="post">
+            <input type="hidden" name="category" id="category" value="length">
+            <label for="">Enter value to convert:</label>
+            <input type="number" name="value">
+
+            <label for="">Unit to convert from:</label>
+            <input type="text" name="from_unit" placeholder="From unit">
+
+            <label for="">Unit to convert to:</label>
+            <input type="text" name="to_unit" placeholder="To unit">
+
+            <input type="submit" value="Convert">
+        </form>
+    </div>
 {% endblock %}
