@@ -89,6 +89,11 @@ body {
     align-items: flex-start;
 }
 
+.form-wrapper form input[type="number"], select {
+    width: 100%;
+    cursor: pointer;
+}
+
 /* ---------- Footer ---------- */
 .footer {
     background-color: var(--primary-color);

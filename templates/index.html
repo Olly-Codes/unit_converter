@@ -4,20 +4,20 @@
 {% block content %}
     <div class="form-wrapper">
         <div class="btn-wrapper">
-            <button class="category-btn active">Length</button>
-            <button class="category-btn">Weight</button>
-            <button class="category-btn">Temperature</button>
+            <button class="category-btn active" data-category="length">Length</button>
+            <button class="category-btn" data-category="weight">Weight</button>
+            <button class="category-btn" data-category="temperature">Temperature</button>
         </div>
         <form action="#" method="post">
             <input type="hidden" name="category" id="category" value="length">
             <label for="">Enter value to convert:</label>
             <input type="number" name="value">
 
-            <label for="">Unit to convert from:</label>
-            <input type="text" name="from_unit" placeholder="From unit">
+            <label for="from_unit">Unit to convert from:</label>
+            <select name="from_unit" id="from_unit"></select>
 
-            <label for="">Unit to convert to:</label>
-            <input type="text" name="to_unit" placeholder="To unit">
+            <label for="to_unit">Unit to convert to:</label>
+            <select name="to_unit" id="to_unit"></select>
 
             <input type="submit" value="Convert">
         </form>
