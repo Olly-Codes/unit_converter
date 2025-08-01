@@ -13,10 +13,6 @@ let updateDropdowns = (category) => {
     fromUnit.innerHTML = ''
     toUnit.innerHTML = ''
 
-    console.log('Selected category:', category)
-    console.log('Available keys:', Object.keys(unitOptions))
-    console.log('unitOptions[category]:', unitOptions[category])
-
     unitOptions[category].forEach(unit => {
         let option1 = new Option(unit, unit);
         let option2 = new Option(unit, unit);
@@ -38,5 +34,4 @@ categoryButtons.forEach(button => {
     });
 });
 
-// Initializing default unit dropdowns
 updateDropdowns(hiddenCategoryInput.value);
