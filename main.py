@@ -32,7 +32,7 @@ def index():
             print(e)
     return render_template("index.html")
 
-@app.route("/length/<float:length>/<from_unit>/<to_unit>",methods=["GET", "POST"])
+@app.route("/length/<float:length>/<from_unit>/<to_unit>", methods=["GET", "POST"])
 def length(length: float, from_unit: str, to_unit: str):
 
     if request.method == "POST":
@@ -47,12 +47,22 @@ def length(length: float, from_unit: str, to_unit: str):
                            to_unit=to_unit)
 
 
-@app.route("/weight/<float:weight>/<from_unit>/<to_unit>")
+@app.route("/weight/<float:weight>/<from_unit>/<to_unit>", methods=["GET", "POST"])
 def weight(weight: float, from_unit: str, to_unit: str):
     print(f"You made it! {weight}{from_unit}{to_unit}")
-    return render_template("weight.html")
 
-@app.route("/temperature/<float:temp>/<from_unit>/<to_unit>")
+    if request.method == "POST":
+        return redirect(url_for("index"))
+
+    orig_val = weight
+    results = c.convert_weight(weight, from_unit, to_unit)
+    converted_val = results
+
+    return render_template("weight.html",  orig_weight=orig_val, 
+                           value=converted_val, from_unit=from_unit,
+                           to_unit=to_unit)
+
+@app.route("/temperature/<float:temp>/<from_unit>/<to_unit>", methods=["GET", "POST"])
 def temperature(temp: float, from_unit: str, to_unit: str):
     print(f"You made it! {temp}{from_unit}{to_unit}")
     return render_template("temperature.html")
