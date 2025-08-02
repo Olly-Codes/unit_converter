@@ -11,13 +11,13 @@
         <form action="#" method="post">
             <input type="hidden" name="category" id="category" value="length">
             <label for="value">Enter value to convert:</label>
-            <input type="number" name="value" step="any" required>
+            <input class="choice" type="number" name="value" step="any" oninput="this.value = !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" required>
 
             <label for="from_unit">Unit to convert from:</label>
-            <select name="from_unit" id="from_unit"></select>
+            <select class="choice" name="from_unit" id="from_unit"></select>
 
             <label for="to_unit">Unit to convert to:</label>
-            <select name="to_unit" id="to_unit"></select>
+            <select class="choice" name="to_unit" id="to_unit"></select>
 
             <input type="submit" value="Convert">
         </form>
