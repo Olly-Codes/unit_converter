@@ -76,4 +76,4 @@ def temperature(temp: float, from_unit: str, to_unit: str):
                            to_unit=to_unit)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
