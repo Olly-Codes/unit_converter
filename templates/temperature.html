@@ -2,5 +2,16 @@
 {% block title%}Unit Converter - Temperature{% endblock %}
 
 {% block content %}
-    <div class="temp-wrapper"></div>
+    <div class="temp-wrapper">
+        <div class="btn-wrapper">
+            <button class="category-btn">Length</button>
+            <button class="category-btn">Weight</button>
+            <button class="category-btn active">Temperature</button>
+        </div>
+        <form action="#" method="post">
+            <p>Result of your calculation:</p>
+            <p>{{ orig_temp }} {{ from_unit }} = {{ value }} {{ to_unit }}</p>
+            <input type="submit" value="Reset">
+        </form>
+    </div>
 {% endblock %}
