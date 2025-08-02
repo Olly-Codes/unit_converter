@@ -60,7 +60,7 @@ def convert_temp(value: float, from_unit: str, to_unit: str):
         to_unit (str): Unit to convert to
 
     Returns:
-        (float): Division of the conversion
+        (float): Converted value
     """
     value_to_c: float = value
 
