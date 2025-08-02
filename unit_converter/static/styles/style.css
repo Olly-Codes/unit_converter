@@ -102,6 +102,13 @@ label {
 .choice {
     margin: 10px 0 10px 0;
     padding: 10px 12px;
+    background-color: var(--primary-color);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    color: var(--text-color);
+    outline: none;
+    font-size: 1rem;
 }
 
 input[type="submit"] {
@@ -137,3 +144,15 @@ h2 {
     text-align: center;
 }
 
+
+@media screen and (max-width: 600px) {
+    .form-wrapper, .length-wrapper, .weight-wrapper, .temp-wrapper {
+        width: 90%;
+    }
+
+    .btn-wrapper .category-btn {
+        color: var(--button-color);
+        margin: 5px 5px 20px 5px;
+        padding: 4px 6px;
+    }
+}

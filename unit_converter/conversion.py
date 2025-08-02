@@ -75,8 +75,8 @@ def convert_temp(value: float, from_unit: str, to_unit: str):
         value_to_c = value - 273.15
     
     if to_unit == "C":
-        return value_to_c
+        return round(value_to_c, 2)
     elif to_unit == "F":
-        return (value_to_c * 9 / 5) + 32
+        return round((value_to_c * 9 / 5) + 32, 2)
     elif to_unit == "K":
-        return value_to_c + 273.15
+        return round(value_to_c + 273.15, 2)
