@@ -1,3 +1,4 @@
+import conversion as c
 from flask import Flask, redirect, render_template, url_for, request
 
 app = Flask(__name__)
@@ -18,23 +19,32 @@ def index():
                 case "length":
                     return redirect(url_for("length", length=value,
                                              from_unit=from_unit,
-                                                to_unit=to_unit))
+                                             to_unit=to_unit))
                 case "weight":
                     return redirect(url_for("weight", weight=value,
                                              from_unit=from_unit,
-                                                to_unit=to_unit))
+                                             to_unit=to_unit))
                 case "temperature":
                     return redirect(url_for("temperature", temp=value,
                                              from_unit=from_unit,
-                                                to_unit=to_unit))
+                                             to_unit=to_unit))
         except Exception as e:
             print(e)
     return render_template("index.html")
 
-@app.route("/length/<float:length>/<from_unit>/<to_unit>")
+@app.route("/length/<float:length>/<from_unit>/<to_unit>",methods=["GET", "POST"])
 def length(length: float, from_unit: str, to_unit: str):
-    print(f"You made it! {length}{from_unit}{to_unit}")
-    return render_template("length.html")
+
+    if request.method == "POST":
+        return redirect(url_for("index"))
+
+    orig_val = length
+    results = c.convert_length(length, from_unit, to_unit)
+    converted_val = results
+
+    return render_template("length.html", orig_length=orig_val, 
+                           value=converted_val, from_unit=from_unit,
+                           to_unit=to_unit)
 
 
 @app.route("/weight/<float:weight>/<from_unit>/<to_unit>")
