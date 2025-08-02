@@ -1,4 +1,4 @@
-# Github User Activity
+# Unit Converter
 ![unit_converter demo](https://github.com/user-attachments/assets/31a80376-fabf-441d-bf7f-516536ed8e7b)
 
 ## Description
